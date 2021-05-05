@@ -11,8 +11,15 @@ const connect = function () {
   conn.setEncoding("utf8");
   conn.on("data", (kickOut) => {
     // code that does something when the connection is first established
-    console.log(kickOut);
-  });  return conn;
+    console.log('server says', kickOut);
+  });  
+  conn.on('connect', () => {
+    console.log("Successfully connected to game server");
+  });
+  conn.on('connect', () => {
+    conn.write("Name: CDN"); 
+  });
+  return conn;
 };
 
 module.exports = {connect};
