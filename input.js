@@ -12,6 +12,8 @@ const handleUserInput = function (data) {
     connection.write("Move: down");
   } else if (data === "d") {
     connection.write("Move: right")
+  } else if (data === "m") {
+    connection.write("Say: Go long")
   }
 };
 
